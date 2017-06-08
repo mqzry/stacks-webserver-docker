@@ -18,5 +18,6 @@ EXPOSE 80 443
 RUN rm -rf /var/www/html/
 
 COPY apache.conf /etc/apache2/apache2.conf
-# ENTRYPOINT ["/bin/bash"]
+COPY php.ini /etc/apache2/php.ini
+
 ENTRYPOINT ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
